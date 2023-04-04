@@ -1,0 +1,51 @@
+﻿<Window x:Class="VeryGoodChess.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VeryGoodChess"
+        mc:Ignorable="d"
+        Title="StartWindow" WindowState="Maximized" Background="WhiteSmoke" >
+    <Window.Resources>
+        <SolidColorBrush x:Key="ComboBoxBackgroundBrush" Color="{Binding ElementName=ColorComboBox, Path=SelectedItem.Background.Color}"/>
+       
+
+          
+       
+
+        <Style TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Window.Resources>
+
+    <Viewbox x:Name="viewboxi" >
+
+
+
+        <Canvas x:Name="canvi" Width="800" Height="450"  >
+            
+                <Image x:Name="chessi"  Stretch="Fill" Height="450" Canvas.Left="136" Width="475">
+            <Image.Source>
+                <BitmapImage  UriSource="pack://application:,,,/chess/restart.svg.png" />
+            </Image.Source>
+                </Image>
+                <TextBlock Text="board color" Width="100" Height="20" Background="Black" Canvas.Left="323" Canvas.Top="175" FontSize="15"   Foreground="WhiteSmoke" FontWeight="Bold"  TextAlignment="Center" ></TextBlock>
+
+            <ComboBox x:Name="ColorComboBox" SelectedIndex="0" Width="150" Height="25"  Canvas.Left="298" Canvas.Top="200" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <ComboBoxItem Content="Brown"    Background="SaddleBrown" />
+                <ComboBoxItem Content="Green" Background="Green" />
+                <ComboBoxItem Content="Black" Background="DarkSlateGray" />
+            </ComboBox>
+
+            <Button x:Name="s" BorderBrush="DarkGray" BorderThickness="2" Canvas.Bottom="300" Canvas.Left="315" Opacity="0.7" Click="startGame" Background="Black" MouseEnter="Button_MouseEnter" MouseLeave="play_MouseLeave" >
+                <TextBlock x:Name="play" TextAlignment="Center" Text="PLAY" TextElement.FontSize="50" Foreground="WhiteSmoke"  TextElement.FontStyle="Normal"/>
+            </Button>
+            <Button x:Name="mode" Width="200" Height="40" BorderBrush="Black" BorderThickness="2" Canvas.Bottom="200" Canvas.Left="274" Opacity="1"  Background="WhiteSmoke" Click="mode_Click"  Canvas.Top="246" HorizontalAlignment="Left" VerticalAlignment="Top"  >
+                <TextBlock x:Name="gamemodetext" TextAlignment="Center" Text="game mode: light" TextElement.FontSize="20"  Foreground="Black"  TextElement.FontStyle="Normal" Width="191"/>
+            </Button>
+            <Button x:Name="close" Width="100" Height="50" BorderBrush="DarkGray" BorderThickness="2" Canvas.Bottom="200" Canvas.Left="323" Opacity="0.7"  Background="Black" Click="close_Click" MouseEnter="Button_MouseEnter1" MouseLeave="play_MouseLeave1" HorizontalAlignment="Center" Canvas.Top="308" VerticalAlignment="Top" >
+                <TextBlock x:Name="closet" TextAlignment="Center" Text="EXIT" TextElement.FontSize="20"  Foreground="WhiteSmoke"  TextElement.FontStyle="Normal"/>
+            </Button>
+        </Canvas>
+    </Viewbox>
+</Window>
